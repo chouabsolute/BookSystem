@@ -40,8 +40,24 @@ void MainWindow::about() {
 void MainWindow::createMenus() {
     fileMenu = menuBar()->addMenu(tr("&File"));
 
+    // ----------------------------------------------------------------------------------
+    // NOTE: Implement code that will check whether or not the user is logged in or not.
+    // If user is logged in, show log out and vice versa. (To-do)
+    // File -> Log In
+    loginAct = new QAction(tr("Log In"), this);
+    fileMenu->addAction(loginAct);
+    connect(loginAct, SIGNAL(triggered()), this, SLOT(login()));
+
+    // File -> Log Out
+    logoutAct = new QAction(tr("Log Out"), this);
+    logoutAct->setEnabled(0); // Gray out Log Out
+    fileMenu->addAction(logoutAct);
+    connect(logoutAct, SIGNAL(triggered()), this, SLOT(logout()));
+    // ----------------------------------------------------------------------------------
+
+    fileMenu->addSeparator();
     // File -> Exit
-    exitAct = new QAction(tr("E&xit"), this);
+    exitAct = new QAction(tr("&Exit"), this);
     fileMenu->addAction(exitAct);
     connect(exitAct, SIGNAL(triggered()), this, SLOT(close()));
 
@@ -54,4 +70,25 @@ void MainWindow::createMenus() {
     // Help -> About Qt
     aboutQtAct = helpMenu->addAction(tr("&About Qt"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// login:
+//
+// Prompts the user to log in and enters his/her credientials. If the user
+// does not have an account. It will have a PushButton for the user to
+// register. Not appearable to users who are already logged in.
+//
+void MainWindow::login() {
+    // Enter Code Here (To-do)
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// logout:
+//
+// Logs the user out of the system. Only appearable to users who are
+// already logged in.
+//
+void MainWindow::logout() {
+    // Enter Code Here (To-do)
 }

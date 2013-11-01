@@ -12,7 +12,9 @@ public:
     MainWindow();
 
 private slots:
-    void         about   ();
+    void         about    ();
+    void         login    ();
+    void         logout   ();
 
 private:
     void        createMenus();
@@ -23,6 +25,8 @@ private:
     QAction     *aboutTC;
     QAction     *aboutQtAct;
     QAction     *exitAct;
+    QAction     *loginAct;
+    QAction     *logoutAct;
 };
 
 #endif // MAINWINDOW_H
